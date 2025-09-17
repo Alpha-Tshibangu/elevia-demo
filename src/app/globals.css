@@ -1,0 +1,73 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Elevia Brand Colors and Variables */
+:root {
+  /* Elevia Brand Colors */
+  --base-color-brand--sapphire: #2933f5;
+  --base-color-brand--indigo: #2129a0;
+  --base-color-brand--azure: #989bff;
+  --base-color-brand--blue-lavender: #c5c8ff;
+  --base-color-brand--light-lilac: #e8e9ff;
+  
+  /* Accent Colors */
+  --base-color-brand--neon-mint: #2cff95;
+  --base-color-brand--lime-yellow: #e2ff25;
+  --base-color-brand--purple: #d270ff;
+  --base-color-brand--orange: #ffc012;
+  
+  /* Neutral Colors */
+  --base-color-neutral--white: white;
+  --base-color-neutral--black: black;
+  --base-color-neutral--dark-grey: #343434;
+  --base-color-neutral--mid-grey: #4f4f50;
+  --base-color-neutral--extreme-grey: #121212;
+  --base-color-neutral--light-grey: #eee;
+  
+  /* System Colors */
+  --base-color-system--success-green: #027a48;
+  --base-color-system--success-green-light: #ecfdf3;
+  --base-color-system--error-red: #b42318;
+  --base-color-system--error-red-light: #fef3f2;
+  
+  /* Elevia Semantic Colors */
+  --background-color--background-primary: var(--base-color-neutral--white);
+  --background-color--background-secondary: var(--base-color-brand--light-lilac);
+  --background-color--background-tertiary: var(--base-color-brand--indigo);
+  --background-color--background-quaternary: var(--base-color-brand--sapphire);
+  --background-color--background-quinary: var(--base-color-brand--blue-lavender);
+  --background-color--background-alternate: var(--base-color-neutral--black);
+  --background-color--background-grey: var(--base-color-neutral--extreme-grey);
+  --background-color--background-success: var(--base-color-system--success-green-light);
+  --background-color--background-error: var(--base-color-system--error-red-light);
+  
+  --text-color--text-primary: var(--base-color-neutral--black);
+  --text-color--text-secondary: var(--base-color-brand--azure);
+  --text-color--text-alternate: var(--base-color-neutral--white);
+  --text-color--text-grey: var(--base-color-neutral--mid-grey);
+  --text-color--text-success: var(--base-color-system--success-green);
+  --text-color--text-error: var(--base-color-system--error-red);
+  
+  --border-color--border-primary: var(--base-color-neutral--light-grey);
+  --border-color--border-secondary: var(--base-color-brand--indigo);
+  --border-color--border-tertiary: var(--base-color-brand--sapphire);
+  --border-color--border-quaternary: var(--base-color-brand--sapphire);
+  --border-color--border-quinary: var(--base-color-brand--azure);
+  --border-color--border-lavender: var(--base-color-brand--blue-lavender);
+  --border-color--border-alternate: var(--base-color-neutral--black);
+  --border-color--border-grey: var(--base-color-neutral--dark-grey);
+  
+  --link-color--link-primary: var(--base-color-neutral--black);
+  --link-color--link-alternate: var(--base-color-neutral--white);
+  --link-color--link-secondary: #aaa;
+  
+  /* Typography (Elevia uses ES Klarheit Grotesk) */
+  --_typography---font-family--body: "ES Klarheit Grotesk", "Inter", Arial, sans-serif;
+  --_typography---font-family--headings: "ES Klarheit Grotesk", "Inter", Arial, sans-serif;
+  --_typography---font-family--callout: "ES Klarheit Grotesk", "Inter", Arial, sans-serif;
+  
+  /* Other Elevia Variables */
+  --swiper-theme-color: #007aff;
+  --_sizes---border-radius--buttn: .25rem;
+}
