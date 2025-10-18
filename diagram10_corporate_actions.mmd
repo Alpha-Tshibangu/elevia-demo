@@ -1,0 +1,40 @@
+%%{init: {'theme':'dark'}}%%
+flowchart TD
+    subgraph Action["Corporate Action Event"]
+        ANNOUNCE[Spin-off Announced<br/>Company X → Company Y]
+        ANALYZE[Impact Analysis Engine]
+        CREATE_ENTITY[New Entity Creation]
+        ADJUST_POS[Position Adjustments]
+        TRIGGER_REBAL[Rebalancing Engine]
+        TAX_OPT[Tax Efficiency Analysis]
+    end
+
+    subgraph Machine["Event State Machine"]
+        PENDING[Pending State]
+        PROCESSING[Processing State]
+        EXECUTED[Executed State]
+        COMPLETED[Completed State]
+    end
+
+    subgraph Cascade["Portfolio Impact Cascade"]
+        LIQUIDITY[Liquidity Impact Analysis]
+        CONVICTION[Investment Conviction Review]
+        REBALANCE[Systematic Rebalancing]
+        REPORTING[Stakeholder Reporting]
+    end
+
+    ANNOUNCE --> ANALYZE
+    ANALYZE --> CREATE_ENTITY
+    CREATE_ENTITY --> ADJUST_POS
+    ADJUST_POS --> TRIGGER_REBAL
+    TRIGGER_REBAL --> TAX_OPT
+
+    ANNOUNCE --> PENDING
+    PENDING --> PROCESSING
+    PROCESSING --> EXECUTED
+    EXECUTED --> COMPLETED
+
+    TAX_OPT --> LIQUIDITY
+    LIQUIDITY --> CONVICTION
+    CONVICTION --> REBALANCE
+    REBALANCE --> REPORTING

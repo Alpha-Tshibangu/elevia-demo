@@ -1,0 +1,52 @@
+%%{init: {'theme':'dark'}}%%
+graph TB
+    subgraph Sources["Data Sources"]
+        BLOOMBERG[Bloomberg Terminal]
+        REFINITIV[Refinitiv Eikon]
+        IBKR[Interactive Brokers]
+        SCHWAB[Charles Schwab]
+        PE_PORTAL[PE Fund Portals]
+        CUSTODIAN[Prime Brokers]
+    end
+
+    subgraph Adapters["UFDA Adapter Layer"]
+        MKT_ADAPTER[Market Data Adapters]
+        CUST_ADAPTER[Custodian Data Adapters]
+        ALT_ADAPTER[Alternative Investment Adapters]
+    end
+
+    subgraph Interface["EUDM Canonical Interface"]
+        NORM[Data Normalization]
+        QUAL[Quality Assessment]
+        META[Metadata Enrichment]
+        TEMP[Temporal Synchronization]
+    end
+
+    subgraph Core["EUDM Core Components"]
+        UAR2[Universal Asset Registry]
+        TPL2[Temporal Position Ledger]
+        EOG2[Entity Ownership Graph]
+        TES2[Transaction Event Stream]
+        DLT2[Data Lineage Tracker]
+    end
+
+    BLOOMBERG --> MKT_ADAPTER
+    REFINITIV --> MKT_ADAPTER
+    IBKR --> CUST_ADAPTER
+    SCHWAB --> CUST_ADAPTER
+    PE_PORTAL --> ALT_ADAPTER
+    CUSTODIAN --> CUST_ADAPTER
+
+    MKT_ADAPTER --> NORM
+    CUST_ADAPTER --> NORM
+    ALT_ADAPTER --> NORM
+
+    NORM --> QUAL
+    QUAL --> META
+    META --> TEMP
+
+    TEMP --> UAR2
+    TEMP --> TPL2
+    TEMP --> EOG2
+    TEMP --> TES2
+    TEMP --> DLT2

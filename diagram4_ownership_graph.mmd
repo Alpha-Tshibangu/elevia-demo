@@ -1,0 +1,23 @@
+%%{init: {'theme':'dark', 'flowchart': {'curve': 'stepAfter'}}}%%
+graph TD
+    FAM[Smith Family Trust]
+
+    FAM -->|40%| COMP_A[Company A Holdings LLC]
+    FAM -->|25%| COMP_B[Company B Ventures]
+    FAM -->|100%| DIRECT[Direct Investment Account]
+
+    COMP_A -->|60%| HOLD_B[Holding Company B]
+    COMP_A -->|80%| PE_FUND[PE Fund III LP]
+
+    COMP_B -->|45%| REIT[Real Estate Investment Trust]
+
+    HOLD_B -->|100%| IBKR[IBKR Trading Account]
+
+    DIRECT -->|100%| SCHWAB[Schwab Brokerage]
+
+    subgraph CALC [" Effective Ownership Calculation "]
+        direction TB
+        CALC1[Company A → Holding B → IBKR<br/>40% × 60% × 100% = 24%]
+        CALC2[Company A → PE Fund III<br/>40% × 80% = 32%]
+        CALC3[Company B → REIT<br/>25% × 45% = 11.25%]
+    end

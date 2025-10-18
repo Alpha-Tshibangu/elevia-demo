@@ -1,0 +1,28 @@
+%%{init: {'theme':'dark'}}%%
+graph TD
+    subgraph Freshness["Tiered Freshness Categories"]
+        RT[Real-Time Layer<br/>Public Equities: $3.2M]
+        CURR[Current Layer<br/>International Markets: $1.8M]
+        STALE[Stale Layer<br/>Private Equity: $4.1M]
+        VSTALE[Very Stale Layer<br/>Real Estate: $1.4M]
+        EST[Estimated Layer<br/>Art & Collectibles: $0.9M]
+    end
+
+    subgraph Calc["NAV Calculation Engine"]
+        NAV_CALC[Uncertainty-Adjusted NAV]
+        RANGE["Total Portfolio: $11.4M<br/>Range: $10.8M - $12.3M"]
+    end
+
+    subgraph Decay["Asset-Class Decay Functions"]
+        EQUITY[Equities: Rapid decay]
+        PE[Private Equity: Linear decay]
+        RE[Real Estate: Slow decay]
+    end
+
+    RT --> NAV_CALC
+    CURR --> NAV_CALC
+    STALE --> NAV_CALC
+    VSTALE --> NAV_CALC
+    EST --> NAV_CALC
+
+    NAV_CALC --> RANGE

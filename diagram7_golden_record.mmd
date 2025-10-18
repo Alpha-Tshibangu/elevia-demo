@@ -1,0 +1,39 @@
+%%{init: {'theme':'dark', 'flowchart': {'curve': 'stepAfter'}}}%%
+flowchart LR
+    subgraph PROBLEM ["  Multi-Source Identity  "]
+        direction TB
+        IBKR_ID[IBKR: AAPL]
+        BBGID[Bloomberg: BBG000B9XRY4]
+        PE_CODE[PE Fund: Internal Code 1001]
+        PDF_REF[PDF Report: Apple Inc]
+        SPACER[" "]
+        style SPACER fill:transparent,stroke:transparent
+    end
+
+    subgraph RESOLUTION [" Identity Graph Resolution "]
+        direction TB
+        WEIGHT[Weighted Edge Creation]
+        CROSS[Conflict Detection]
+        CONF[Golden Record Creation]
+    end
+
+    subgraph REGISTRY [" Universal Asset Registry "]
+        direction TB
+        CANONICAL[Canonical UUID<br/>12345-abcd-6789]
+        PRIMARY[Primary ISIN<br/>US0378331005]
+        ALIASES[Identity Graph Map]
+        QUALITY[Data Quality Metadata]
+    end
+
+    IBKR_ID --> WEIGHT
+    BBGID --> WEIGHT
+    PE_CODE --> WEIGHT
+    PDF_REF --> WEIGHT
+
+    WEIGHT --> CROSS
+    CROSS --> CONF
+    CONF --> CANONICAL
+
+    CANONICAL --> PRIMARY
+    CANONICAL --> ALIASES
+    CANONICAL --> QUALITY

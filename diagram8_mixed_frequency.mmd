@@ -1,0 +1,28 @@
+%%{init: {'theme':'dark'}}%%
+graph TD
+    subgraph Portfolio["Mixed-Frequency Asset Portfolio"]
+        PUBLIC[Public Equities<br/>Real-time: $3.2M]
+        INTL[International Markets<br/>Current: $1.8M]
+        PE[Private Equity<br/>Stale: $4.1M]
+        RE[Real Estate<br/>Very Stale: $1.4M]
+        ART[Art & Collectibles<br/>Estimated: $0.9M]
+    end
+
+    subgraph Calculation["Uncertainty-Adjusted Calculation"]
+        CALC[Staleness-Adjusted NAV Engine]
+        RANGE["Total Portfolio: $11.4M<br/>Range: $10.8M - $12.3M"]
+    end
+
+    subgraph Gates["Operational Quality Gates"]
+        GATE1[Rebalancing Gate<br/>Max 14-day staleness]
+        GATE2[Reporting Gate<br/>Max 45-day staleness]
+        GATE3[Investment Gate<br/>Max 7-day staleness]
+    end
+
+    PUBLIC --> CALC
+    INTL --> CALC
+    PE --> CALC
+    RE --> CALC
+    ART --> CALC
+
+    CALC --> RANGE

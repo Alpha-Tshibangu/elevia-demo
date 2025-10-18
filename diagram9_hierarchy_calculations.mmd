@@ -1,0 +1,37 @@
+%%{init: {'theme':'dark'}}%%
+graph TD
+    subgraph Hierarchy["Complex Ownership Hierarchy"]
+        FAMILY[Smith Family Trust]
+
+        FAMILY -->|40%| COMP_A[Company A Holdings LLC]
+        FAMILY -->|60%| COMP_B[Company B Ventures]
+
+        COMP_A -->|60%| HOLDING[Holding Company B]
+        COMP_A -->|30%| PE_FUND[PE Fund III LP]
+
+        COMP_B -->|75%| REIT[Public REIT Portfolio]
+
+        HOLDING -->|100%| IBKR_ACC[IBKR Account Portfolio<br/>$2.5M]
+    end
+
+    subgraph Engine["Recursive Calculation Engine"]
+        TRAVERSE[Graph Traversal Algorithm]
+        CALC[Look-Through Calculation<br/>40% × 60% × 100% = 24%]
+        CASCADE[Cascade Update System]
+    end
+
+    subgraph Views["Multi-Dimensional Views"]
+        ECONOMIC[Economic Interest<br/>24% of $2.5M = $600K]
+        VOTING[Voting Rights View]
+        TAX[Tax Reporting View]
+        REGULATORY[Regulatory View]
+    end
+
+    IBKR_ACC --> TRAVERSE
+    TRAVERSE --> CALC
+    CALC --> CASCADE
+
+    CALC --> ECONOMIC
+    CALC --> VOTING
+    CALC --> TAX
+    CALC --> REGULATORY

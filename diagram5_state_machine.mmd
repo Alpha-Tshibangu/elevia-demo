@@ -1,0 +1,36 @@
+%%{init: {'theme':'dark'}}%%
+stateDiagram-v2
+    [*] --> Pending: Corporate Action Announced
+
+    Pending --> Analyzing: Event Processing Started
+    Analyzing --> Impact_Assessment: Business Rules Applied
+
+    Impact_Assessment --> Approved: Auto-approval conditions met
+    Impact_Assessment --> Manual_Review: Complex scenario detected
+
+    Manual_Review --> Approved: Human approval
+    Manual_Review --> Rejected: Action declined
+
+    Approved --> Executing: Implementation started
+    Executing --> Partial: Interim state
+    Partial --> Executing: Continue processing
+    Executing --> Completed: All impacts processed
+
+    Rejected --> [*]
+    Completed --> [*]
+
+    note right of Impact_Assessment
+        Impact Cascade Analysis:
+        • Position adjustments
+        • New entity creation
+        • Rebalancing triggers
+        • Tax efficiency optimization
+    end note
+
+    note right of Executing
+        Execution State Triggers:
+        • Position updates
+        • Cash movements
+        • Document generation
+        • Notification dispatch
+    end note

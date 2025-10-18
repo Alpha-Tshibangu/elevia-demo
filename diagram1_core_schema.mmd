@@ -1,0 +1,39 @@
+%%{init: {'theme':'dark', 'flowchart': {'curve': 'stepAfter'}}}%%
+flowchart TD
+    UAR[Universal Asset Registry]
+
+    UAR_Fields["• asset_id (canonical UUID)<br/>• identity_graph (weighted map of all known identifiers)<br/>• asset_classification (hierarchical: security → instrument → issuer → sector)<br/>• data_quality_metadata (source reliability scores, validation timestamp, freshness tier)"]
+
+    TPL[Temporal Position Ledger]
+    EOG[Entity Ownership Graph]
+
+    TPL_Fields["• position_id (canonical UUID)<br/>• asset_reference (links to Universal Asset Registry)<br/>• quantity_history (time-series with staleness-adjusted uncertainty ranges)<br/>• valuation_stack (real-time, current, stale, very stale, estimated)<br/>• ownership_path (hierarchical chain from ultimate beneficial owner)<br/>• volatility_profile (asset-class-specific staleness decay functions)"]
+
+    EOG_Fields["• entity_id (canonical UUID for legal entities)<br/>• ownership_edges (directed graph with percentage weights and effective dates)<br/>• consolidation_rules (economic vs. voting vs. tax treatment)<br/>• corporate_action_hooks (event triggers for automatic recalculation)"]
+
+    TES[Transaction Event Stream]
+
+    TES_Fields["• event_id (canonical UUID)<br/>• event_type (trade, dividend, spin-off, capital call, etc.)<br/>• impact_cascade (predicted effects across ownership hierarchy)<br/>• execution_state (pending, partial, complete, failed)"]
+
+    DLT[Data Lineage Tracker]
+
+    DLT_Fields["• source_metadata (provider, endpoint, refresh frequency)<br/>• quality_metrics (freshness tier, completeness, validation status)<br/>• transformation_history (audit trail of all data mutations)<br/>• operational_thresholds (data quality gates for different system operations)"]
+
+    UAR --> TPL
+    UAR --> EOG
+    UAR --> UAR_Fields
+
+    TPL --> TES
+    TPL --> TPL_Fields
+
+    EOG --> TES
+    EOG --> EOG_Fields
+
+    TES --> DLT
+    TES --> TES_Fields
+
+    TPL --> DLT
+    EOG --> DLT
+    UAR --> DLT
+
+    DLT --> DLT_Fields

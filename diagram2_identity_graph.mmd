@@ -1,0 +1,24 @@
+%%{init: {'theme':'dark'}}%%
+graph LR
+    subgraph "Asset: Apple Inc"
+        AAPL[AAPL Ticker]
+        CUSIP[037833100]
+        ISIN[US0378331005]
+        LEI[HWUPKR0MPOU8FGXBT394]
+        BBGID[BBG000B9XRY4]
+    end
+
+    AAPL -.->|Cross-validated| CUSIP
+    CUSIP -.->|Primary link| ISIN
+    ISIN -.->|Regulatory| LEI
+    BBGID -.->|Market data| AAPL
+
+    subgraph "Golden Record Resolution"
+        CANONICAL[Canonical Asset ID<br/>12345-abcd-6789-efgh]
+        WEIGHT[Weighted Identity Graph]
+        VALIDATE[Cross-validation Engine]
+    end
+
+    ISIN --> CANONICAL
+    WEIGHT --> CANONICAL
+    VALIDATE --> CANONICAL
